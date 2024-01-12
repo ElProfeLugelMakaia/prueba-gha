@@ -15,11 +15,11 @@ public class MessageController {
 
     @GetMapping("hello")
     public String sayHello(){
-        return this.service.sayHello();
+        return this.service.sayMessage("hello");
     }
 
     @GetMapping("bye")
     public String sayBye(){
-        return this.service.sayBye();
+        return this.service.sayMessage("bye");
     }
 }
