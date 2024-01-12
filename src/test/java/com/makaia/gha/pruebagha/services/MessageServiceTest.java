@@ -21,7 +21,7 @@ class MessageServiceTest {
         String expectedMessage = "Hola panas de Makaia!";
 
         // Act
-        String actualMessage = this.service.sayMessage("");
+        String actualMessage = this.service.sayMessage("hello");
 
         // Assert
         assertEquals(expectedMessage, actualMessage);
@@ -33,7 +33,7 @@ class MessageServiceTest {
         String expectedMessage = "Todo bien mis panas de Makaia!";
 
         // Act
-        String actualMessage = this.service.sayMessage("");
+        String actualMessage = this.service.sayMessage("bye");
 
         // Assert
         assertEquals(expectedMessage, actualMessage);
