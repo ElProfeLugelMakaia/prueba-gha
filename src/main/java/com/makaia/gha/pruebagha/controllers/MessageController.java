@@ -3,6 +3,7 @@ package com.makaia.gha.pruebagha.controllers;
 import com.makaia.gha.pruebagha.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,4 +23,10 @@ public class MessageController {
     public String sayBye(){
         return this.service.sayMessage("bye");
     }
+
+    @GetMapping("personalized/{name}")
+    public String personalized(@PathVariable("name") String name){
+        return this.service.personalizedMessage(name);
+    }
+
 }
