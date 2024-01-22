@@ -17,6 +17,14 @@ public class MessageService {
         this.messages.put("personalized", "Hola :name, espero que estés bien");
     }
     public String sayMessage(String messageKey){
+        if(messageKey == null) {
+            throw new RuntimeException("La llave del mensaje no puede ser nula");
+        }
+
+        if(messageKey.length() > 15){
+            throw new RuntimeException("La longitud de la llave del mensaje no puede ser mayor a 15");
+        }
+
         return this.messages.get(messageKey);
     }
 
