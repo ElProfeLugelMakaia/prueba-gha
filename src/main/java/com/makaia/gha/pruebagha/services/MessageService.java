@@ -1,5 +1,7 @@
 package com.makaia.gha.pruebagha.services;
 
+import com.makaia.gha.pruebagha.config.GlobalConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -8,6 +10,8 @@ import java.util.Map;
 @Service
 public class MessageService {
 
+    @Autowired
+    GlobalConfig config;
     private Map<String, String> messages;
 
     public MessageService() {
@@ -17,7 +21,7 @@ public class MessageService {
         this.messages.put("personalized", "Hola :name, espero que estés bien");
     }
     public String sayMessage(String messageKey) {
-        return this.messages.get(messageKey);
+        return "["+this.config.getEnvironment()+"]" + this.messages.get(messageKey);
     }
 
     public String personalizedMessage(String name){

@@ -9,11 +9,15 @@ public class GlobalConfig {
     @Value("${makaia.presentation}")
     private String makaiaPresentation;
 
-    void GlobalConfig(){
-        System.out.println(makaiaPresentation);
-    }
+    @Value("${global.env}")
+    private String environment;
+
 
     public String getMakaiaPresentation(){
         return this.makaiaPresentation;
+    }
+
+    public String getEnvironment(){
+        return this.environment;
     }
 }
