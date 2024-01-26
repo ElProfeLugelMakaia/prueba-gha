@@ -1,5 +1,6 @@
 package com.makaia.gha.pruebagha.controllers;
 
+import com.makaia.gha.pruebagha.config.GlobalConfig;
 import com.makaia.gha.pruebagha.services.MessageService;
 import com.makaia.gha.pruebagha.services.UtilsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,12 @@ public class MessageController {
     @Autowired
     MessageService service;
 
+    @Autowired
+    GlobalConfig config;
+
     @GetMapping("hello")
     public String sayHello(){
-        return this.service.sayMessage("hello");
+        return this.service.sayMessage("hello") + this.config.getMakaiaPresentation();
     }
 
     @GetMapping("bye")
